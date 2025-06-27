@@ -21,6 +21,9 @@ A modern full-stack task management system with drag-and-drop sorting, filtering
 
 ## 📦 Installation
 
+## 🛠 .env
+- make sure to change the DB_DATABASE={your database name}
+
 ### Backend (Laravel)
 
 ```bash
