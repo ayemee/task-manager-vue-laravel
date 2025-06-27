@@ -6,5 +6,5 @@ use App\Http\Controllers\AuthController;
 
 Route::apiResource('task', TaskController::class);
 Route::post('task/reorder', [TaskController::class, 'reorder']);
-Route::post('/register', [AuthController::class, 'register']);
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('register', [AuthController::class, 'register']);
+Route::post('login', [AuthController::class, 'login']);
