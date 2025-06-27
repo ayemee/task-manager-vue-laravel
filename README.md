@@ -4,7 +4,7 @@ A modern full-stack task management system with drag-and-drop sorting, filtering
 
 ## 🚀 Features
 
-- User Registration & Login (Laravel API + Pinia)
+- User Registration & Login (Laravel 11 API + Pinia)
 - Task CRUD (Create, Read, Update, Delete)
 - Drag-and-Drop Task Reordering
 - Priority & Status Filters
