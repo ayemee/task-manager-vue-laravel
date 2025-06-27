@@ -31961,12 +31961,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuedraggable */ "./node_modules/vuedraggable/dist/vuedraggable.umd.js");
 /* harmony import */ var vuedraggable__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(vuedraggable__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _stores_taskStore__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../stores/taskStore */ "./resources/js/stores/taskStore.js");
-/* harmony import */ var _stores_auth__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../stores/auth */ "./resources/js/stores/auth.js");
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { if (r) i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n;else { var o = function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); }; o("next", 0), o("throw", 1), o("return", 2); } }, _regeneratorDefine2(e, r, n, t); }
 function asyncGeneratorStep(n, t, e, r, o, a, c) { try { var i = n[a](c), u = i.value; } catch (n) { return void e(n); } i.done ? t(u) : Promise.resolve(u).then(r, o); }
 function _asyncToGenerator(n) { return function () { var t = this, e = arguments; return new Promise(function (r, o) { var a = n.apply(t, e); function _next(n) { asyncGeneratorStep(a, r, o, _next, _throw, "next", n); } function _throw(n) { asyncGeneratorStep(a, r, o, _next, _throw, "throw", n); } _next(void 0); }); }; }
-
 
 
 
@@ -31975,7 +31973,6 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
   setup: function setup(__props, _ref) {
     var __expose = _ref.expose;
     __expose();
-    var auth = (0,_stores_auth__WEBPACK_IMPORTED_MODULE_3__.useAuthStore)();
     var taskStore = (0,_stores_taskStore__WEBPACK_IMPORTED_MODULE_2__.useTaskStore)();
     var form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)({
       title: '',
@@ -31990,8 +31987,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
     // Inputs
     var search = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('');
     var filterStatus = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('all');
-
-    // Add new task
+    var filterPriority = (0,vue__WEBPACK_IMPORTED_MODULE_0__.ref)('high');
     var addTask = /*#__PURE__*/function () {
       var _ref2 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee() {
         return _regenerator().w(function (_context) {
@@ -32034,8 +32030,6 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         return _ref3.apply(this, arguments);
       };
     }();
-
-    // Add new task
     var markAsComplete = /*#__PURE__*/function () {
       var _ref4 = _asyncToGenerator(/*#__PURE__*/_regenerator().m(function _callee3(task) {
         var status,
@@ -32045,7 +32039,6 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
             case 0:
               status = _args3.length > 1 && _args3[1] !== undefined ? _args3[1] : false;
               task.completed = status;
-              console.log('current task', task.completed);
               _context3.n = 1;
               return taskStore.updateTask(task);
             case 1:
@@ -32057,8 +32050,6 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         return _ref4.apply(this, arguments);
       };
     }();
-
-    // Priority border color
     var priorityColor = function priorityColor(priority) {
       return {
         high: 'border-red-500',
@@ -32066,14 +32057,12 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
         low: 'border-green-500'
       }[priority] || 'border-gray-300';
     };
-
-    // Filtered + searched list (used by draggable)
     var filteredTasks = (0,vue__WEBPACK_IMPORTED_MODULE_0__.computed)(function () {
       return taskStore.tasks.filter(function (task) {
         if (filterStatus.value !== 'all') {
-          return task.title.toLowerCase().includes(search.value.toLowerCase()) && task.status == filterStatus.value;
+          return task.title.toLowerCase().includes(search.value.toLowerCase()) && task.status == filterStatus.value && task.priority == filterPriority.value;
         } else {
-          return task.title.toLowerCase().includes(search.value.toLowerCase());
+          return task.title.toLowerCase().includes(search.value.toLowerCase()) && task.priority == filterPriority.value;
         }
       });
     });
@@ -32085,11 +32074,11 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       }));
     };
     var __returned__ = {
-      auth: auth,
       taskStore: taskStore,
       form: form,
       search: search,
       filterStatus: filterStatus,
+      filterPriority: filterPriority,
       addTask: addTask,
       deleteTask: deleteTask,
       markAsComplete: markAsComplete,
@@ -32104,9 +32093,6 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       },
       get useTaskStore() {
         return _stores_taskStore__WEBPACK_IMPORTED_MODULE_2__.useTaskStore;
-      },
-      get useAuthStore() {
-        return _stores_auth__WEBPACK_IMPORTED_MODULE_3__.useAuthStore;
       }
     };
     Object.defineProperty(__returned__, '__isScriptSetup', {
@@ -32162,7 +32148,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _stores_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stores/auth */ "./resources/js/stores/auth.js");
+/* harmony import */ var _stores_authStore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stores/authStore */ "./resources/js/stores/authStore.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.mjs");
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { if (r) i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n;else { var o = function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); }; o("next", 0), o("throw", 1), o("return", 2); } }, _regeneratorDefine2(e, r, n, t); }
@@ -32176,7 +32162,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
   setup: function setup(__props, _ref) {
     var __expose = _ref.expose;
     __expose();
-    var auth = (0,_stores_auth__WEBPACK_IMPORTED_MODULE_1__.useAuthStore)();
+    var authStore = (0,_stores_authStore__WEBPACK_IMPORTED_MODULE_1__.useAuthStore)();
     var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
     var form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
       name: '',
@@ -32190,9 +32176,9 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
           while (1) switch (_context.n) {
             case 0:
               _context.n = 1;
-              return auth.login(form);
+              return authStore.login(form);
             case 1:
-              if (auth.success) {
+              if (authStore.success) {
                 router.push('/dashboard');
               } else {
                 alert('Wrong email or password!');
@@ -32207,13 +32193,13 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       };
     }();
     var __returned__ = {
-      auth: auth,
+      authStore: authStore,
       router: router,
       form: form,
       login: login,
       reactive: vue__WEBPACK_IMPORTED_MODULE_0__.reactive,
       get useAuthStore() {
-        return _stores_auth__WEBPACK_IMPORTED_MODULE_1__.useAuthStore;
+        return _stores_authStore__WEBPACK_IMPORTED_MODULE_1__.useAuthStore;
       },
       get useRouter() {
         return vue_router__WEBPACK_IMPORTED_MODULE_2__.useRouter;
@@ -32241,7 +32227,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */   "default": () => (__WEBPACK_DEFAULT_EXPORT__)
 /* harmony export */ });
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
-/* harmony import */ var _stores_auth__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stores/auth */ "./resources/js/stores/auth.js");
+/* harmony import */ var _stores_authStore__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../stores/authStore */ "./resources/js/stores/authStore.js");
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.mjs");
 function _regenerator() { /*! regenerator-runtime -- Copyright (c) 2014-present, Facebook, Inc. -- license (MIT): https://github.com/babel/babel/blob/main/packages/babel-helpers/LICENSE */ var e, t, r = "function" == typeof Symbol ? Symbol : {}, n = r.iterator || "@@iterator", o = r.toStringTag || "@@toStringTag"; function i(r, n, o, i) { var c = n && n.prototype instanceof Generator ? n : Generator, u = Object.create(c.prototype); return _regeneratorDefine2(u, "_invoke", function (r, n, o) { var i, c, u, f = 0, p = o || [], y = !1, G = { p: 0, n: 0, v: e, a: d, f: d.bind(e, 4), d: function d(t, r) { return i = t, c = 0, u = e, G.n = r, a; } }; function d(r, n) { for (c = r, u = n, t = 0; !y && f && !o && t < p.length; t++) { var o, i = p[t], d = G.p, l = i[2]; r > 3 ? (o = l === n) && (u = i[(c = i[4]) ? 5 : (c = 3, 3)], i[4] = i[5] = e) : i[0] <= d && ((o = r < 2 && d < i[1]) ? (c = 0, G.v = n, G.n = i[1]) : d < l && (o = r < 3 || i[0] > n || n > l) && (i[4] = r, i[5] = n, G.n = l, c = 0)); } if (o || r > 1) return a; throw y = !0, n; } return function (o, p, l) { if (f > 1) throw TypeError("Generator is already running"); for (y && 1 === p && d(p, l), c = p, u = l; (t = c < 2 ? e : u) || !y;) { i || (c ? c < 3 ? (c > 1 && (G.n = -1), d(c, u)) : G.n = u : G.v = u); try { if (f = 2, i) { if (c || (o = "next"), t = i[o]) { if (!(t = t.call(i, u))) throw TypeError("iterator result is not an object"); if (!t.done) return t; u = t.value, c < 2 && (c = 0); } else 1 === c && (t = i["return"]) && t.call(i), c < 2 && (u = TypeError("The iterator does not provide a '" + o + "' method"), c = 1); i = e; } else if ((t = (y = G.n < 0) ? u : r.call(n, G)) !== a) break; } catch (t) { i = e, c = 1, u = t; } finally { f = 1; } } return { value: t, done: y }; }; }(r, o, i), !0), u; } var a = {}; function Generator() {} function GeneratorFunction() {} function GeneratorFunctionPrototype() {} t = Object.getPrototypeOf; var c = [][n] ? t(t([][n]())) : (_regeneratorDefine2(t = {}, n, function () { return this; }), t), u = GeneratorFunctionPrototype.prototype = Generator.prototype = Object.create(c); function f(e) { return Object.setPrototypeOf ? Object.setPrototypeOf(e, GeneratorFunctionPrototype) : (e.__proto__ = GeneratorFunctionPrototype, _regeneratorDefine2(e, o, "GeneratorFunction")), e.prototype = Object.create(u), e; } return GeneratorFunction.prototype = GeneratorFunctionPrototype, _regeneratorDefine2(u, "constructor", GeneratorFunctionPrototype), _regeneratorDefine2(GeneratorFunctionPrototype, "constructor", GeneratorFunction), GeneratorFunction.displayName = "GeneratorFunction", _regeneratorDefine2(GeneratorFunctionPrototype, o, "GeneratorFunction"), _regeneratorDefine2(u), _regeneratorDefine2(u, o, "Generator"), _regeneratorDefine2(u, n, function () { return this; }), _regeneratorDefine2(u, "toString", function () { return "[object Generator]"; }), (_regenerator = function _regenerator() { return { w: i, m: f }; })(); }
 function _regeneratorDefine2(e, r, n, t) { var i = Object.defineProperty; try { i({}, "", {}); } catch (e) { i = 0; } _regeneratorDefine2 = function _regeneratorDefine(e, r, n, t) { if (r) i ? i(e, r, { value: n, enumerable: !t, configurable: !t, writable: !t }) : e[r] = n;else { var o = function o(r, n) { _regeneratorDefine2(e, r, function (e) { return this._invoke(r, n, e); }); }; o("next", 0), o("throw", 1), o("return", 2); } }, _regeneratorDefine2(e, r, n, t); }
@@ -32255,7 +32241,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
   setup: function setup(__props, _ref) {
     var __expose = _ref.expose;
     __expose();
-    var auth = (0,_stores_auth__WEBPACK_IMPORTED_MODULE_1__.useAuthStore)();
+    var auth = (0,_stores_authStore__WEBPACK_IMPORTED_MODULE_1__.useAuthStore)();
     var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_2__.useRouter)();
     var form = (0,vue__WEBPACK_IMPORTED_MODULE_0__.reactive)({
       name: '',
@@ -32292,7 +32278,7 @@ function _asyncToGenerator(n) { return function () { var t = this, e = arguments
       register: register,
       reactive: vue__WEBPACK_IMPORTED_MODULE_0__.reactive,
       get useAuthStore() {
-        return _stores_auth__WEBPACK_IMPORTED_MODULE_1__.useAuthStore;
+        return _stores_authStore__WEBPACK_IMPORTED_MODULE_1__.useAuthStore;
       },
       get useRouter() {
         return vue_router__WEBPACK_IMPORTED_MODULE_2__.useRouter;
@@ -32342,7 +32328,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.esm-bundler.js");
 
 var _hoisted_1 = {
-  "class": "min-h-screen bg-gray-100 flex justify-center p-4"
+  "class": "min-h-screen bg-gray-100 flex justify-center p-10"
 };
 var _hoisted_2 = {
   "class": "w-full bg-white rounded-2xl shadow-lg p-8"
@@ -32363,7 +32349,7 @@ var _hoisted_8 = {
   "class": "text-gray-400 text-center mt-6"
 };
 function render(_ctx, _cache, $props, $setup, $data, $options) {
-  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
+  return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("div", _hoisted_1, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [_cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
     "class": "flex flex-col sm:flex-row justify-end mb-10 gap-2"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
     href: "/login",
@@ -32376,21 +32362,21 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.title = $event;
     }),
     placeholder: "Add New Task",
-    "class": "border p-2 rounded w-full",
+    "class": "border border-gray-500 p-2 rounded w-full",
     required: ""
   }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.title]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
     "onUpdate:modelValue": _cache[1] || (_cache[1] = function ($event) {
       return $setup.form.priority = $event;
     }),
-    "class": "border p-2 rounded"
-  }, _cache[5] || (_cache[5] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+    "class": "border border-gray-500 p-2 rounded"
+  }, _cache[6] || (_cache[6] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
     value: "low"
   }, "Low", -1 /* CACHED */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
     value: "medium",
     selected: ""
   }, "Medium", -1 /* CACHED */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
     value: "high"
-  }, "High", -1 /* CACHED */)]), 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.form.priority]]), _cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
+  }, "High", -1 /* CACHED */)]), 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.form.priority]]), _cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "submit",
     "class": "bg-green-500 text-white px-4 py-2 rounded hover:bg-green-300"
   }, " Add ", -1 /* CACHED */))])], 32 /* NEED_HYDRATION */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Filter + Search "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -32399,26 +32385,38 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }),
     type: "text",
     placeholder: "Search tasks...",
-    "class": "px-3 py-2 border rounded w-full sm:w-3/4"
+    "class": "px-3 py-2 border border-gray-500 rounded w-full sm:w-2/4"
   }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.search]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
     "onUpdate:modelValue": _cache[3] || (_cache[3] = function ($event) {
       return $setup.filterStatus = $event;
     }),
-    "class": "px-3 py-2 border rounded w-full sm:w-1/4"
-  }, _cache[7] || (_cache[7] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+    "class": "px-3 py-2 border border-gray-500 rounded w-full sm:w-1/4"
+  }, _cache[8] || (_cache[8] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
     value: "all"
   }, "All", -1 /* CACHED */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
     value: "pending"
   }, "Pending", -1 /* CACHED */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
     value: "completed"
-  }, "Completed", -1 /* CACHED */)]), 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.filterStatus]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Task List "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["draggable"], {
-    modelValue: $setup.filteredTasks,
+  }, "Completed", -1 /* CACHED */)]), 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.filterStatus]]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("select", {
     "onUpdate:modelValue": _cache[4] || (_cache[4] = function ($event) {
+      return $setup.filterPriority = $event;
+    }),
+    "class": "px-3 py-2 border border-gray-500 rounded w-full sm:w-1/4"
+  }, _cache[9] || (_cache[9] = [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+    value: "low"
+  }, "Low", -1 /* CACHED */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+    value: "medium",
+    selected: ""
+  }, "Medium", -1 /* CACHED */), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("option", {
+    value: "high"
+  }, "High", -1 /* CACHED */)]), 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelSelect, $setup.filterPriority]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)(" Task List "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)($setup["draggable"], {
+    modelValue: $setup.filteredTasks,
+    "onUpdate:modelValue": _cache[5] || (_cache[5] = function ($event) {
       return $setup.filteredTasks = $event;
     }),
     "item-key": "id",
     onEnd: $setup.logOrder,
-    "class": "space-y-2"
+    "class": "space-y-2 border-gray-500"
   }, {
     item: (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function (_ref) {
       var task = _ref.element;
@@ -32508,7 +32506,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.email = $event;
     }),
     type: "email",
-    "class": "w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    "class": "w-full px-4 py-2 rounded border border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
   }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.email]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_cache[3] || (_cache[3] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "class": "block text-gray-600 text-sm mb-1"
   }, "Password", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -32516,10 +32514,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.password = $event;
     }),
     type: "password",
-    "class": "w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    "class": "w-full px-4 py-2 rounded border border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
   }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.password]])]), _cache[4] || (_cache[4] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "submit",
-    "class": "w-full bg-green-500 hover:bg-green-300 text-white py-2 rounded-xl font-semibold transition"
+    "class": "w-full bg-green-500 hover:bg-green-300 text-white py-2 rounded font-semibold transition"
   }, " Login ", -1 /* CACHED */))], 32 /* NEED_HYDRATION */)])]);
 }
 
@@ -32568,7 +32566,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.name = $event;
     }),
     type: "text",
-    "class": "w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    "class": "w-full px-4 py-2 rounded border border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
   }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.name]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_4, [_cache[5] || (_cache[5] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "class": "block text-gray-600 text-sm mb-1"
   }, "Email", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -32576,7 +32574,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.email = $event;
     }),
     type: "email",
-    "class": "w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    "class": "w-full px-4 py-2 rounded border border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
   }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.email]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_cache[6] || (_cache[6] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "class": "block text-gray-600 text-sm mb-1"
   }, "Password", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -32584,7 +32582,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.password = $event;
     }),
     type: "password",
-    "class": "w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    "class": "w-full px-4 py-2 rounded border border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
   }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.password]])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_6, [_cache[7] || (_cache[7] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("label", {
     "class": "block text-gray-600 text-sm mb-1"
   }, "Confirm Password", -1 /* CACHED */)), (0,vue__WEBPACK_IMPORTED_MODULE_0__.withDirectives)((0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("input", {
@@ -32592,10 +32590,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       return $setup.form.password_confirmation = $event;
     }),
     type: "password",
-    "class": "w-full px-4 py-2 rounded-xl border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500"
+    "class": "w-full px-4 py-2 rounded border border-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500"
   }, null, 512 /* NEED_PATCH */), [[vue__WEBPACK_IMPORTED_MODULE_0__.vModelText, $setup.form.password_confirmation]])]), _cache[8] || (_cache[8] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("button", {
     type: "submit",
-    "class": "w-full bg-green-500 hover:green-300 text-white py-2 rounded-xl font-semibold transition"
+    "class": "w-full bg-green-500 hover:green-300 text-white py-2 rounded font-semibold transition"
   }, " Register ", -1 /* CACHED */))], 32 /* NEED_HYDRATION */), _cache[10] || (_cache[10] = (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
     "class": "text-center text-sm text-gray-500 mt-4"
   }, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" Already have an account? "), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
@@ -34806,7 +34804,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active[data-v-a75d8ec2], .fade-leave-active[data-v-a75d8ec2] {\r\n  transition: all 0.3s ease;\n}\n.fade-enter-from[data-v-a75d8ec2], .fade-leave-to[data-v-a75d8ec2] {\r\n  opacity: 0;\r\n  transform: translateY(8px);\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\n.fade-enter-active[data-v-a75d8ec2], .fade-leave-active[data-v-a75d8ec2] {\r\n  transition: all 0.8s ease;\n}\n.fade-enter-from[data-v-a75d8ec2], .fade-leave-to[data-v-a75d8ec2] {\r\n  opacity: 0;\r\n  transform: translateY(10px);\n}\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -51407,10 +51405,10 @@ var router = (0,vue_router__WEBPACK_IMPORTED_MODULE_3__.createRouter)({
 
 /***/ }),
 
-/***/ "./resources/js/stores/auth.js":
-/*!*************************************!*\
-  !*** ./resources/js/stores/auth.js ***!
-  \*************************************/
+/***/ "./resources/js/stores/authStore.js":
+/*!******************************************!*\
+  !*** ./resources/js/stores/authStore.js ***!
+  \******************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";

@@ -131,9 +131,6 @@
     outline-style: none;
   }
 }
-.bg-green-100 {
-  background-color: green;
-}
 @property --tw-rotate-x {
   syntax: "*";
   inherits: false;

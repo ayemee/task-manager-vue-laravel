@@ -1,5 +1,5 @@
 <template>
-    <div class="min-h-screen bg-gray-100 flex justify-center p-4">
+    <div class="min-h-screen bg-gray-100 flex justify-center p-10">
         <div class="w-full bg-white rounded-2xl shadow-lg p-8">
             <div class="flex flex-col sm:flex-row justify-end mb-10 gap-2">
                 <a href="/login" class="text-gray-500 hover:underline">Log out</a>
@@ -7,8 +7,8 @@
             <!-- Add Task Form -->
             <form @submit.prevent="addTask" class="mb-10">
                 <div class="flex flex-col sm:flex-row gap-2">
-                    <input v-model="form.title" placeholder="Add New Task" class="border p-2 rounded w-full" required />
-                    <select v-model="form.priority" class="border p-2 rounded">
+                    <input v-model="form.title" placeholder="Add New Task" class="border border-gray-500 p-2 rounded w-full" required />
+                    <select v-model="form.priority" class="border border-gray-500 p-2 rounded">
                         <option value="low">Low</option>
                         <option value="medium" selected>Medium</option>
                         <option value="high">High</option>
@@ -24,16 +24,21 @@
                     v-model="search"
                     type="text"
                     placeholder="Search tasks..."
-                    class="px-3 py-2 border rounded w-full sm:w-3/4"
+                    class="px-3 py-2 border border-gray-500 rounded w-full sm:w-2/4"
                 />
-                <select v-model="filterStatus" class="px-3 py-2 border rounded w-full sm:w-1/4">
+                <select v-model="filterStatus" class="px-3 py-2 border border-gray-500 rounded w-full sm:w-1/4">
                     <option value="all">All</option>
                     <option value="pending">Pending</option>
                     <option value="completed">Completed</option>
                 </select>
+                <select v-model="filterPriority" class="px-3 py-2 border border-gray-500 rounded w-full sm:w-1/4">
+                    <option value="low">Low</option>
+                    <option value="medium" selected>Medium</option>
+                    <option value="high">High</option>
+                </select>
             </div>
             <!-- Task List -->
-            <draggable v-model="filteredTasks" item-key="id" @end="logOrder" class="space-y-2">
+            <draggable v-model="filteredTasks" item-key="id" @end="logOrder" class="space-y-2 border-gray-500">
                 <template #item="{ element: task }">
                     <transition name="fade">
                     <div
@@ -49,7 +54,6 @@
                     </transition>
                 </template>
             </draggable>
-
             <div v-if="filteredTasks.length === 0" class="text-gray-400 text-center mt-6">No tasks found.</div>
         </div>
     </div>
@@ -59,9 +63,6 @@
 import { ref, computed, onMounted } from 'vue'
 import draggable from 'vuedraggable'
 import { useTaskStore } from '../stores/taskStore'
-import { useAuthStore } from '../stores/auth'
-
-const auth = useAuthStore()
 
 const taskStore = useTaskStore()
 
@@ -79,8 +80,8 @@ onMounted(() => {
 // Inputs
 const search = ref('')
 const filterStatus = ref('all')
+const filterPriority = ref('high')
 
-// Add new task
 const addTask = async () => {
     console.log('form', form.value);
     if (!form.value.title) return
@@ -93,15 +94,11 @@ const deleteTask = async (id) => {
   await taskStore.deleteTask(id)
 }
 
-// Add new task
 const markAsComplete = async (task, status=false) => {
     task.completed = status;
-    console.log('current task', task.completed);
     await taskStore.updateTask(task)
-    // taskStore.fetchTasks(form)
 }
 
-// Priority border color
 const priorityColor = (priority) => {
   return {
     high: 'border-red-500',
@@ -110,14 +107,16 @@ const priorityColor = (priority) => {
   }[priority] || 'border-gray-300'
 }
 
-// Filtered + searched list (used by draggable)
 const filteredTasks = computed(() => {
     return taskStore.tasks
     .filter(task => {
         if(filterStatus.value !== 'all') {
-            return task.title.toLowerCase().includes(search.value.toLowerCase()) && task.status == filterStatus.value;
+            return task.title.toLowerCase().includes(search.value.toLowerCase()) 
+                && task.status == filterStatus.value
+                && task.priority == filterPriority.value;
         } else {
-            return task.title.toLowerCase().includes(search.value.toLowerCase());
+            return task.title.toLowerCase().includes(search.value.toLowerCase())
+                && task.priority == filterPriority.value;
         }
     })
 })
@@ -130,10 +129,10 @@ const logOrder = () => {
 
 <style scoped>
 .fade-enter-active, .fade-leave-active {
-  transition: all 0.3s ease;
+  transition: all 0.8s ease;
 }
 .fade-enter-from, .fade-leave-to {
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(10px);
 }
 </style>
