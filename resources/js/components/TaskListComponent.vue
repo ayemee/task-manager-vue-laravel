@@ -83,7 +83,6 @@ const filterStatus = ref('all')
 const filterPriority = ref('high')
 
 const addTask = async () => {
-    console.log('form', form.value);
     if (!form.value.title) return
     await taskStore.addTask(form.value)
     form.value.title = ''
